@@ -1,5 +1,5 @@
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
-Google Colab Notebook with Visual Test GIFs: [Open Notebook in Google Colab](https://colab.research.google.com/drive/1dM5U_vU5lZ522G4a7S62vYk6t8Wp9Z0N)[span_0](start_span)[span_0](end_span)
+Google Colab Notebook with Visual Test GIFs: [Open Notebook in Google Colab](https://colab.research.google.com/drive/1dM5U_vU5lZ522G4a7S62vYk6t8Wp9Z0N)
 ---
 ## 1. Executive Overview and Project Purpose
 The **Reinforcement Learning Mastery** framework is an end-to-end research and experimentation testbed designed to rigorously implement, benchmark, and analyze a broad spectrum of Reinforcement Learning (RL) methodologies[span_1](start_span)[span_1](end_span). Modern artificial intelligence research often focuses solely on empirical reward metrics, which can obscure critical issues such as reward hacking, catastrophic forgetting, brittle convergence, and localized instability[span_2](start_span)[span_2](end_span). This repository resolves those limitations by prioritizing quantitative execution alongside deep qualitative and visual evaluation[span_3](start_span)[span_3](end_span).
