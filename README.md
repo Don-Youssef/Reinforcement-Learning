@@ -77,7 +77,8 @@ To eliminate hardware limitations and handle high-throughput matrix computations
 ## 6. Google Colab Notebook and Interactive Reproduction
 All algorithm implementations, environment drivers, neural network architectures, and visual GIF validation tests are fully consolidated within a single interactive Google Colab notebook.
 To execute, verify, or visually inspect the trained agents, access the notebook directly via the link below:
-**Google Colab Notebook URL:** [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
+**Google Colab Notebook URL:**
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
 ### Quick Execution Steps inside Google Colab
 1. Open the provided Colab link in your browser.
 2. Navigate to **Runtime** > **Change runtime type** and select **TPU** (or GPU/High-RAM CPU depending on availability).
