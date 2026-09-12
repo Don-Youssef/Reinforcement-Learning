@@ -1,6 +1,5 @@
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
 Google Colab Notebook with Visual Test GIFs:
-
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
 ---
 ## 1. Executive Overview and Project Purpose
