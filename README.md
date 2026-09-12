@@ -1,6 +1,6 @@
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
 Google Colab Notebook with Visual Test GIFs: 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1dM5U_vU5lZ522G4a7S62vYk6t8Wp9Z0N)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
 ---
 ## 1. Executive Overview and Project Purpose
 The **Reinforcement Learning Mastery** framework is an end-to-end research and experimentation testbed designed to rigorously implement, benchmark, and analyze a broad spectrum of Reinforcement Learning (RL) methodologies. Modern artificial intelligence research often focuses solely on empirical reward metrics, which can obscure critical issues such as reward hacking, catastrophic forgetting, brittle convergence, and localized instability. This repository resolves those limitations by prioritizing quantitative execution alongside deep qualitative and visual evaluation.
@@ -78,7 +78,7 @@ To eliminate hardware limitations and handle high-throughput matrix computations
 ## 6. Google Colab Notebook and Interactive Reproduction
 All algorithm implementations, environment drivers, neural network architectures, and visual GIF validation tests are fully consolidated within a single interactive Google Colab notebook.
 To execute, verify, or visually inspect the trained agents, access the notebook directly via the link below:
-**Google Colab Notebook URL:** [https://colab.research.google.com/drive/1dM5U_vU5lZ522G4a7S62vYk6t8Wp9Z0N](https://colab.research.google.com/drive/1dM5U_vU5lZ522G4a7S62vYk6t8Wp9Z0N)
+**Google Colab Notebook URL:** [https://colab.research.google.com/drive/1dM5U_vU5lZ522G4a7S62vYk6t8Wp9Z0N](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
 ### Quick Execution Steps inside Google Colab
 1. Open the provided Colab link in your browser.
 2. Navigate to **Runtime** > **Change runtime type** and select **TPU** (or GPU/High-RAM CPU depending on availability).
