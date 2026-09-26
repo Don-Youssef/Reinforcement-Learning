@@ -1,3 +1,11 @@
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
+[![Gymnasium](https://img.shields.io/badge/Gymnasium-Farama-008080?style=for-the-badge)](https://gymnasium.farama.org/)
+[![Domain](https://img.shields.io/badge/Domain-Reinforcement_Learning-7B1FA2?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/Don-Youssef/Reinforcement-Learning?style=for-the-badge&logo=github)](https://github.com/Don-Youssef/Reinforcement-Learning/stargazers)
+
+
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
 Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
 ---
