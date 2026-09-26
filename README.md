@@ -1,4 +1,16 @@
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Don-Youssef/Reinforcement-Learning)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-green.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
+[![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.0%2B-02569B.svg)](https://stable-baselines3.readthedocs.io/)
+[![Hardware](https://img.shields.io/badge/Hardware-GPU%20%7C%20TPU-FF6F00.svg)]()
+[![Domain](https://img.shields.io/badge/Domain-Reinforcement--Learning-blueviolet.svg)]()
+[![Environment](https://img.shields.io/badge/Environment-Gymnasium-darkgreen.svg)](https://gymnasium.farama.org/)
+[![Status](https://img.shields.io/badge/Status-Active--Development-brightgreen.svg)]()
+
+
 Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
 ---
 ## 1. Executive Overview and Project Purpose
