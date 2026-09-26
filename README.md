@@ -6,9 +6,9 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-ee4c2c.svg)](https://pytorch.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243.svg)](https://numpy.org/)
 [![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.0%2B-02569B.svg)](https://stable-baselines3.readthedocs.io/)
+[![Environment](https://img.shields.io/badge/Environment-Gymnasium-darkgreen.svg)](https://gymnasium.farama.org/)
 [![Hardware](https://img.shields.io/badge/Hardware-GPU%20%7C%20TPU-FF6F00.svg)]()
 [![Domain](https://img.shields.io/badge/Domain-Reinforcement--Learning-blueviolet.svg)]()
-[![Environment](https://img.shields.io/badge/Environment-Gymnasium-darkgreen.svg)](https://gymnasium.farama.org/)
 [![Status](https://img.shields.io/badge/Status-Active--Development-brightgreen.svg)]()
 
 
