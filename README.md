@@ -100,6 +100,7 @@ This codebase contains a modular, high-performance implementation structured acr
 
 ---
 ### Algorithmic Breakdown: Problems Solved & Enterprise Value
+---
 #### 1. Model-Free Tabular Paradigms
 #### **Q-Learning**
 * **Target Benchmark:** `FrozenLake-v1`
