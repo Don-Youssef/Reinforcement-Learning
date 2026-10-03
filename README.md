@@ -8,7 +8,7 @@
 [![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243.svg)](https://numpy.org/)
 [![Environment](https://img.shields.io/badge/Environment-Gymnasium-darkgreen.svg)](https://gymnasium.farama.org/)
 [![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.0%2B-02569B.svg)](https://stable-baselines3.readthedocs.io/)
-[![Ray RLlib](https://img.shields.io/badge/Ray_RLlib-2.0%2B-0288D1.svg)](https://docs.ray.io/en/latest/rllib/index.html)
+[![RLlib](https://img.shields.io/badge/RLlib-2.0%2B-0288D1.svg)](https://docs.ray.io/en/latest/rllib/index.html)
 [![imageio](https://img.shields.io/badge/imageio-GIF_Rendering-4B1056.svg)](https://imageio.readthedocs.io/)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-Colab%20TPUs-orange.svg)](https://colab.research.google.com/)
 [![Hardware](https://img.shields.io/badge/Hardware-GPU%20%7C%20TPU-FF6F00.svg)]()
