@@ -1,6 +1,6 @@
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
+[![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Algorithms](https://img.shields.io/badge/Algorithms-20%2B-0052CC?logo=thealgorithms&logoColor=white)](#implemented-algorithms)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
@@ -16,7 +16,7 @@
 [![Status](https://img.shields.io/badge/Status-Active--Development-239120?logo=github&logoColor=white)]()
 
 
-Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
+Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
 ---
 ## 1. Executive Overview and Project Purpose
 The **Reinforcement Learning Mastery** framework is an end-to-end research and experimentation testbed designed to rigorously implement, benchmark, and analyze a broad spectrum of Reinforcement Learning (RL) methodologies. Modern artificial intelligence research often focuses solely on empirical reward metrics, which can obscure critical issues such as reward hacking, catastrophic forgetting, brittle convergence, and localized instability. This repository resolves those limitations by prioritizing quantitative execution alongside deep qualitative and visual evaluation.
@@ -261,7 +261,7 @@ All algorithm implementations, environment drivers, neural network architectures
 To execute, verify, or visually inspect the trained agents, access the notebook directly via the link below:
 **Google Colab Notebook URL:**
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
+[![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
 ### Quick Execution Steps inside Google Colab
 1. Open the provided Colab link in your browser.
 2. Navigate to **Runtime** > **Change runtime type** and select **TPU** (or GPU/High-RAM CPU depending on availability).
