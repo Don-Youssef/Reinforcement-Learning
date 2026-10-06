@@ -1,20 +1,19 @@
 # Reinforcement Learning Mastery: Comprehensive Framework, Environments, Algorithms, and Qualitative Visual Benchmarking
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
-[![License](https://img.shields.io/badge/License-MIT-1081C2?logo=open-source-initiative&logoColor=white)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?logo=open-source-initiative&logoColor=white)](LICENSE)
 [![Algorithms](https://img.shields.io/badge/Algorithms-20%2B-0052CC?logo=thealgorithms&logoColor=white)](#implemented-algorithms)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-1.24%2B-013243?logo=numpy&logoColor=white)](https://numpy.org/)
-[![Environment](https://img.shields.io/badge/Environment-Gymnasium-008080?logo=openai&logoColor=white)](https://gymnasium.farama.org/)
-[![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.0%2B-02569B?logo=pytorch&logoColor=white)](https://stable-baselines3.readthedocs.io/)
+[![Environment](https://img.shields.io/badge/Environment-Gymnasium-008080)](https://gymnasium.farama.org/)
+[![Stable-Baselines3](https://img.shields.io/badge/Stable--Baselines3-2.0%2B-02569B?logo=python&logoColor=white)](https://stable-baselines3.readthedocs.io/)
 [![RLlib](https://img.shields.io/badge/RLlib-2.0%2B-0288D1?logo=ray&logoColor=white)](https://docs.ray.io/en/latest/rllib/index.html)
 [![imageio](https://img.shields.io/badge/imageio-GIF_Rendering-4B1056?logo=ffmpeg&logoColor=white)](https://imageio.readthedocs.io/)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-Colab%20TPUs-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/)
 [![Hardware](https://img.shields.io/badge/Hardware-GPU%20%7C%20TPU-FF6F00?logo=nvidia&logoColor=white)]()
 [![Domain](https://img.shields.io/badge/Domain-Reinforcement--Learning-8A2BE2)]()
 [![Status](https://img.shields.io/badge/Status-Active--Development-239120?logo=github&logoColor=white)]()
-
 
 
 Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1lCt2wodc8o8mXHOHzNEuiVifhb_HxOhi#scrollTo=o3H_m6DZY7y4)
