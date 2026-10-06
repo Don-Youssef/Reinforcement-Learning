@@ -11,9 +11,10 @@
 [![RLlib](https://img.shields.io/badge/RLlib-2.0%2B-0288D1?logo=ray&logoColor=white)](https://docs.ray.io/en/latest/rllib/index.html)
 [![imageio](https://img.shields.io/badge/imageio-GIF_Rendering-4B1056?logo=ffmpeg&logoColor=white)](https://imageio.readthedocs.io/)
 [![Benchmarks](https://img.shields.io/badge/Benchmarks-Colab%20TPUs-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/)
-[![Hardware](https://img.shields.io/badge/Hardware-GPU%20%7C%20TPU-FF6F00?logo=nvidia&logoColor=white)]()
+[![Hardware](https://img.shields.io/badge/Hardware-GPU%20%7C%20TPU-76B900?logo=nvidia&logoColor=white)]()
 [![Domain](https://img.shields.io/badge/Domain-Reinforcement--Learning-8A2BE2)]()
 [![Status](https://img.shields.io/badge/Status-Active--Development-239120?logo=github&logoColor=white)]()
+
 
 
 Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
