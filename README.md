@@ -18,8 +18,7 @@
 
 
 
-Google Colab Notebook with Visual Test GIFs: [![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
----
+Google Colab Notebook with Visual Test 
 ## 1. Executive Overview and Project Purpose
 The **Reinforcement Learning Mastery** framework is an end-to-end research and experimentation testbed designed to rigorously implement, benchmark, and analyze a broad spectrum of Reinforcement Learning (RL) methodologies. Modern artificial intelligence research often focuses solely on empirical reward metrics, which can obscure critical issues such as reward hacking, catastrophic forgetting, brittle convergence, and localized instability. This repository resolves those limitations by prioritizing quantitative execution alongside deep qualitative and visual evaluation.
 The primary objectives of this repository are:
@@ -300,9 +299,8 @@ To eliminate hardware limitations and handle high-throughput matrix computations
 ## 6. Google Colab Notebook and Interactive Reproduction
 All algorithm implementations, environment drivers, neural network architectures, and visual GIF validation tests are fully consolidated within a single interactive Google Colab notebook.
 To execute, verify, or visually inspect the trained agents, access the notebook directly via the link below:
-**Google Colab Notebook URL:**
 
-[![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
+**Google Colab Notebook URL:** [![Open In Colab](https://img.shields.io/badge/Open_In_Colab-F9AB00?logo=googlecolab&logoColor=white)](https://colab.research.google.com/drive/1kOYURy8TVGIryGueFkyb3NKfmZQbl2bw#scrollTo=X0bdVfpHhSpK)
 ### Quick Execution Steps inside Google Colab
 1. Open the provided Colab link in your browser.
 2. Navigate to **Runtime** > **Change runtime type** and select **TPU** (or GPU/High-RAM CPU depending on availability).
