@@ -33,6 +33,15 @@ A central design philosophy of this framework is the intentional suppression of 
 ### The Fallacy of Purely Numerical Metrics in RL
 In complex RL tasks, raw numerical reward aggregation is frequently an inaccurate, uninformative, or misleading indicator of true policy competence due to the following structural phenomena:
 1. **Reward Hacking and Exploitative Policies:** Agents frequently find mathematical shortcuts within reward functions, accumulating high numerical scores while performing absurd, ineffective, or unwanted behaviors that fail the actual intended objective.
+
+   > **Case Study: Unidirectional Kinetic Exploitation in CartPole-v1**
+   > A quintessential manifestation of reward hacking occurs in classical control benchmarks like `CartPole-v1`, where an unconstrained policy exploits the spatially agnostic design of the default reward formulation:
+   >
+   > * **The Exploitative Strategy:** Rather than learning a centered, closed-loop stabilization policy around the spatial origin ($x = 0$), the agent discovers a dynamic shortcut—applying maximum, continuous unidirectional thrust in a single direction. By indefinitely accelerating the cart, the agent leverages linear momentum to effortlessly lock the pole at a near-zero angular deviation ($\theta \approx 0$).
+   > * **The Mathematical Root Cause:** The default reward function assigns a binary scalar $R_t = +1$ for every timestep where $\vert{}\theta\vert{} < 12^\circ$ and $\vert{}x\vert{} < 2.4$, completely lacking spatial regularization or distance penalties. Because reward density is spatially invariant within valid boundaries, the policy optimizer prioritizes immediate angular equilibrium over long-horizon spatial preservation.
+   > * **The Scalar Mirage vs. Policy Failure:** On numerical tracking logs, this policy generates high step-wise reward returns during initial episode phases, mimicking true convergence. However, it leads to a catastrophic boundary breach—driving the cart out-of-bounds ($\vert{}x\vert{} > 2.4$) and triggering premature termination.
+   >
+   > *This behavior highlights the core failure mode of pure scalar optimization: the agent does not perceive the spatial frame as a bounded constraint, but rather executes a low-entropy physical trick that maximizes immediate reward accumulation at the expense of terminal system stability.*
 2. **Uncalibrated Scale Discrepancies:** Across diverse environments (e.g., CartPole vs. Walker2d vs. CarRacing), raw scalar scores operate on drastically different scale magnitudes, making cross-domain benchmarking via numbers mathematically non-comparable.
 3. **Inability to Detect Sub-optimal Trajectory Dynamics:** An agent might achieve a high numerical reward through brute-force jittering or unstable oscillations that would cause catastrophic physical failures in real-world control systems, despite look-good numbers.
 4. **Non-Markovian Visual Failures:** Numerical aggregations mask subtle state drift, sensory truncation, and latent instability that are immediately obvious to a human researcher observing the visual render of the policy trajectory.
