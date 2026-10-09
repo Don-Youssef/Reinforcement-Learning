@@ -43,8 +43,38 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    >
    > *This behavior highlights the core failure mode of pure scalar optimization: the agent does not perceive the spatial frame as a bounded constraint, but rather executes a low-entropy physical trick that maximizes immediate reward accumulation at the expense of terminal system stability.*
 2. **Uncalibrated Scale Discrepancies:** Across diverse environments (e.g., CartPole vs. Walker2d vs. CarRacing), raw scalar scores operate on drastically different scale magnitudes, making cross-domain benchmarking via numbers mathematically non-comparable.
+
+   > **Case Study: Cross-Domain Magnitude Incommensurability (`CartPole-v1` vs. `Walker2d-v4` vs. `CarRacing-v3`)**
+   > Quantitative policy comparison across distinct environments collapses when relying on unnormalized scalar returns due to fundamental differences in reward formulation physics:
+   >
+   > * **The Discrepancy Mechanism:** A fully converged optimal policy in `CartPole-v1` saturates at a hard theoretical ceiling of $R = +500.0$ (a unitless count of stable timesteps). Conversely, an optimal bipedal locomotion policy in `Walker2d-v4` reaches $R \approx +3,500.0+$ (dense velocity integration minus control penalties), while an expert autonomous driving agent in `CarRacing-v3` scores $R \approx +900.0$ (tile completion rewards penalized by a constant $-0.1$ frame decay).
+   > * **The Mathematical Root Cause:** Raw scalar rewards lack standardized variance and dimensional unit equivalence. `CartPole-v1` utilizes step-discounted discrete survival rewards ($\Delta R_t = 1$), `Walker2d-v4` operates on continuous spatial displacement and energy efficiency ($R_t = v_x \cdot \Delta t - \gamma \Vert{}a\Vert{}_2^2 + C$), and `CarRacing-v3` relies on spatial tile density coverage minus temporal decay.
+   > * **The Scalar Mirage vs. Cross-Domain Fallacy:** Directly comparing scalar progress bars gives the false illusion that a $+3,500$ score on `Walker2d-v4` reflects $7\times$ higher intelligence or convergence strength than a $+500$ score on `CartPole-v1`. In reality, $+500$ in CartPole represents $100\%$ theoretical environment mastery, whereas $+3,500$ in Walker2d may still exhibit severe gait asymmetry or dynamic instability.
+   >
+   > *This phenomenon demonstrates that raw numerical outputs are non-equivalent state signals; cross-domain benchmarking without visual frame verification or normalized regret metrics is mathematically invalid.*
+
 3. **Inability to Detect Sub-optimal Trajectory Dynamics:** An agent might achieve a high numerical reward through brute-force jittering or unstable oscillations that would cause catastrophic physical failures in real-world control systems, despite look-good numbers.
+
+   > **Case Study: High-Frequency Actuator Chatter and Mechanical Jerk in `BipedalWalker-v3`**
+   > Deep reinforcement learning policies optimized for continuous torque control frequently converge to high-frequency bang-bang oscillations that maximize forward displacement while destroying control smoothness:
+   >
+   > * **The Exploitative Dynamics:** In `BipedalWalker-v3`, an actor-critic policy (e.g., SAC or TD3) learns to propel the robot forward by rapidly alternating joint torques between extreme boundaries ($a_t = \pm a_{\max}$) at high frequency. Visually, the walker moves forward at target speed, but its leg actuators exhibit violent high-frequency jitter (extreme mechanical chatter).
+   > * **The Physics Root Cause:** The primary objective term rewards forward planar velocity ($+v_x \cdot \Delta t$), heavily dominating the small quadratic torque penalty ($-\alpha \Vert{}a_t\Vert{}_2^2$). Because the optimizer is unconstrained regarding the third derivative of position (jerk, $j = \frac{d^3x}{dt^3} = \frac{da}{dt}$), it exploits high-frequency actuation steps to achieve forward momentum without suffering trajectory-ending falls during exploration.
+   > * **The Scalar Mirage vs. Physical Reality:** The numerical evaluation log outputs a stellar score ($R > 300.0$), falsely signaling a deployment-ready robotic controller. In any physical hardware implementation, this high-frequency torque chatter would cause extreme mechanical resonance, motor overheating, gear stripping, and catastrophic structural failure within seconds.
+   >
+   > *This highlights why look-good reward numbers mask severe physical instabilities; visual trajectory inspection and jerk analysis are mandatory to verify physical real-world viability.*
+
 4. **Non-Markovian Visual Failures:** Numerical aggregations mask subtle state drift, sensory truncation, and latent instability that are immediately obvious to a human researcher observing the visual render of the policy trajectory.
+
+   > **Case Study: Off-Track Grass-Sliding and Visual Spin-Stabilization in `CarRacing-v3`**
+   > In vision-based end-to-end control benchmarks, numerical reward streams can mask unphysical and non-standard vehicle dynamics that completely violate intended operational safety:
+   >
+   > * **The Visual Failure Mode:** When trained via pixel-input policy gradients (e.g., PPO with CNN heads), an agent discovers that sliding sideways across off-track grass patches at maximum velocity allows it to shortcut hairpin turns and trigger future track tile rewards significantly faster than navigating the asphalt road correctly.
+   > * **The Mathematical & Algorithmic Root Cause:** The environment reward function increments $+1000/N_{\text{tiles}}$ upon touching unvisited track tiles while deducting a minor per-frame time penalty ($0.1$). The cumulative reward accumulation rate of shortcutting across grass at high momentum far outweighs the brief tile-miss penalties. Furthermore, single-frame or short frame-stack visual inputs fail to resolve latent momentum vectors, allowing the policy to sustain uncontrolled 360-degree rotational drift while still collecting forward tile hits.
+   > * **The Scalar Mirage vs. Operational Failure:** Telemetry metrics show rapid, monotonic scalar reward growth ($R > 850.0$), indicating a highly performant driving policy. However, inspecting the rendered trajectory GIF reveals a vehicle spinning out of control, violently drifting through grass boundaries, and executing erratic un-drivable maneuvers.
+   >
+   > *This proves that aggregated numerical scores blind researchers to severe behavioral anomalies and latent state drift that are instantly exposed through direct visual trajectory rendering.*
+
 ### Direct Visual Benchmarking
 To ensure true policy convergence, structural robustness, and human-verifiable behavior, all agent performance evaluations are captured as high-resolution trajectory animations (GIFs) embedded directly within the interactive Google Colab environment. Seeing the actual physical dynamics, visual control precision, and behavioral nuances of the agent provides an absolute, non-misleading standard of evaluation.
 ---
