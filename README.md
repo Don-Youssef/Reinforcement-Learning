@@ -46,7 +46,7 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > **Elite Solution & Mitigation Architecture: Spatial Homeostasis & Distance Regularization**
    > To eradicate unconstrained kinetic exploitation, we redesign the objective function from a binary survival counter to a spatially-regularized continuous control manifold:
    > * **Quadratic Center-Seeking Penalty:** Introduce a strict spatial deviation penalty into the reward function to penalize drift from the origin: $R_t = 1.0 - \beta x^2 - \gamma \theta^2$ where $\beta = 0.1$ and $\gamma = 1.0$, forcing the agent to optimize for both angular stability and spatial centering simultaneously.
-   > * **Terminal Boundary Shaping:** Implement a heavy negative sparse penalty ($R_{\text{terminal}} = -10.0$) upon out-of-bounds spatial termination ($\vert{}x\vert{} \ge 2.4$), overriding the cumulative step reward and discouraging boundary-skirting exploits.*
+   > * **Terminal Boundary Shaping:** Implement a heavy negative sparse penalty ($R_{\text{terminal}} = -10.0$) upon out-of-bounds spatial termination ($\vert{}x\vert{} \ge 2.4$), overriding the cumulative step reward and discouraging boundary-skirting exploits.
 
 
 2. **Uncalibrated Scale Discrepancies:** Across diverse environments (e.g., CartPole vs. Walker2d vs. CarRacing), raw scalar scores operate on drastically different scale magnitudes, making cross-domain benchmarking via numbers mathematically non-comparable.
@@ -63,8 +63,7 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > **Elite Solution & Mitigation Architecture: Normalized Regret & Episodic Advantage Standardization**
    > To achieve mathematically valid cross-domain benchmarking:
    > * **Min-Max Theoretical Normalization:** Scale raw scalar returns against analytically or empirically derived theoretical bounds ($R_{\min}, R_{\max}$): $\tilde{R}_{\text{episode}} = \frac{R_{\text{episode}} - R_{\min}}{R_{\max} - R_{\min}} \times 100$.
-   > * **Generalized Advantage Estimation (GAE) & Return Standardization:** Normalize advantages and episodic returns at the batch level ($\mu=0, \sigma=1$) across policy updates to eliminate scale disparities during multi-paradigm training runs.
-   > * 
+   > * **Generalized Advantage Estimation (GAE) & Return Standardization:** Normalize advantages and episodic returns at the batch level ($\mu=0, \sigma=1$) across policy updates to eliminate scale disparities during multi-paradigm training runs. 
 
 3. **Inability to Detect Sub-optimal Trajectory Dynamics:** An agent might achieve a high numerical reward through brute-force jittering or unstable oscillations that would cause catastrophic physical failures in real-world control systems, despite look-good numbers.
 
@@ -81,7 +80,6 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > To eliminate physical actuator chatter and ensure deployment-safe kinematic smoothness:
    > * **Action-Rate & Jerk Penalty Formulation:** Augment the reward function with a temporal action-difference penalty that restricts rapid high-frequency changes in control signals: $R_{\text{total}} = R_{\text{base}} - \alpha \Vert{}a_t\Vert{}_2^2 - \lambda \Vert{}a_t - a_{t-1}\Vert{}_2^2$ where $\lambda = 0.05$ explicitly penalizes mechanical jerk and forces low-pass filtered, smooth actuation profiles.
    > * **Stochastic Action-Smoothing (OU / Gaussian Noise Filtering):** Apply Ornstein-Uhlenbeck noise or exponential moving average (EMA) smoothing to action trajectories during exploration to discourage bang-bang policy convergence.
-   > * 
 
 4. **Non-Markovian Visual Failures:** Numerical aggregations mask subtle state drift, sensory truncation, and latent instability that are immediately obvious to a human researcher observing the visual render of the policy trajectory.
 
