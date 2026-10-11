@@ -42,6 +42,12 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > * **The Scalar Mirage vs. Policy Failure:** On numerical tracking logs, this policy generates high step-wise reward returns during initial episode phases, mimicking true convergence. However, it leads to a catastrophic boundary breach—driving the cart out-of-bounds ($\vert{}x\vert{} > 2.4$) and triggering premature termination.
    >
    > *This behavior highlights the core failure mode of pure scalar optimization: the agent does not perceive the spatial frame as a bounded constraint, but rather executes a low-entropy physical trick that maximizes immediate reward accumulation at the expense of terminal system stability.*
+   > **Elite Solution & Mitigation Architecture: Spatial Homeostasis & Distance Regularization**
+   > To eradicate unconstrained kinetic exploitation, we redesign the objective function from a binary survival counter to a spatially-regularized continuous control manifold:
+   > * **Quadratic Center-Seeking Penalty:** Introduce a strict spatial deviation penalty into the reward function to penalize drift from the origin: $R_t = 1.0 - \beta x^2 - \gamma \theta^2$ where $\beta = 0.1$ and $\gamma = 1.0$, forcing the agent to optimize for both angular stability and spatial centering simultaneously.
+   > * **Terminal Boundary Shaping:** Implement a heavy negative sparse penalty ($R_{\text{terminal}} = -10.0$) upon out-of-bounds spatial termination ($\vert{}x\vert{} \ge 2.4$), overriding the cumulative step reward and discouraging boundary-skirting exploits.
+
+
 2. **Uncalibrated Scale Discrepancies:** Across diverse environments (e.g., CartPole vs. Walker2d vs. CarRacing), raw scalar scores operate on drastically different scale magnitudes, making cross-domain benchmarking via numbers mathematically non-comparable.
 
    > **Case Study: Cross-Domain Magnitude Incommensurability (`CartPole-v1` vs. `Walker2d-v4` vs. `CarRacing-v3`)**
