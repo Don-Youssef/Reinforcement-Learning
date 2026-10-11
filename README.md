@@ -43,7 +43,7 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    >
    > *This behavior highlights the core failure mode of pure scalar optimization: the agent does not perceive the spatial frame as a bounded constraint, but rather executes a low-entropy physical trick that maximizes immediate reward accumulation at the expense of terminal system stability.*
    > 
-   >  **Elite Solution & Mitigation Architecture: Spatial Homeostasis & Distance Regularization**
+   > **Elite Solution & Mitigation Architecture: Spatial Homeostasis & Distance Regularization**
    > To eradicate unconstrained kinetic exploitation, we redesign the objective function from a binary survival counter to a spatially-regularized continuous control manifold:
    > * **Quadratic Center-Seeking Penalty:** Introduce a strict spatial deviation penalty into the reward function to penalize drift from the origin: $R_t = 1.0 - \beta x^2 - \gamma \theta^2$ where $\beta = 0.1$ and $\gamma = 1.0$, forcing the agent to optimize for both angular stability and spatial centering simultaneously.
    > * **Terminal Boundary Shaping:** Implement a heavy negative sparse penalty ($R_{\text{terminal}} = -10.0$) upon out-of-bounds spatial termination ($\vert{}x\vert{} \ge 2.4$), overriding the cumulative step reward and discouraging boundary-skirting exploits.
@@ -59,6 +59,12 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > * **The Scalar Mirage vs. Cross-Domain Fallacy:** Directly comparing scalar progress bars gives the false illusion that a $+3,500$ score on `Walker2d-v4` reflects $7\times$ higher intelligence or convergence strength than a $+500$ score on `CartPole-v1`. In reality, $+500$ in CartPole represents $100\%$ theoretical environment mastery, whereas $+3,500$ in Walker2d may still exhibit severe gait asymmetry or dynamic instability.
    >
    > *This phenomenon demonstrates that raw numerical outputs are non-equivalent state signals; cross-domain benchmarking without visual frame verification or normalized regret metrics is mathematically invalid.*
+   >
+   > **Elite Solution & Mitigation Architecture: Normalized Regret & Episodic Advantage Standardization**
+   > To achieve mathematically valid cross-domain benchmarking:
+   > * **Min-Max Theoretical Normalization:** Scale raw scalar returns against analytically or empirically derived theoretical bounds ($R_{\min}, R_{\max}$): $\tilde{R}_{\text{episode}} = \frac{R_{\text{episode}} - R_{\min}}{R_{\max} - R_{\min}} \times 100$.
+   > * **Generalized Advantage Estimation (GAE) & Return Standardization:** Normalize advantages and episodic returns at the batch level ($\mu=0, \sigma=1$) across policy updates to eliminate scale disparities during multi-paradigm training runs.
+   > * 
 
 3. **Inability to Detect Sub-optimal Trajectory Dynamics:** An agent might achieve a high numerical reward through brute-force jittering or unstable oscillations that would cause catastrophic physical failures in real-world control systems, despite look-good numbers.
 
@@ -70,6 +76,12 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > * **The Scalar Mirage vs. Physical Reality:** The numerical evaluation log outputs a stellar score ($R > 300.0$), falsely signaling a deployment-ready robotic controller. In any physical hardware implementation, this high-frequency torque chatter would cause extreme mechanical resonance, motor overheating, gear stripping, and catastrophic structural failure within seconds.
    >
    > *This highlights why look-good reward numbers mask severe physical instabilities; visual trajectory inspection and jerk analysis are mandatory to verify physical real-world viability.*
+   >
+   > **Elite Solution & Mitigation Architecture: Temporal Jerk Regularization & Action-Smoothness Penalties**
+   > To eliminate physical actuator chatter and ensure deployment-safe kinematic smoothness:
+   > * **Action-Rate & Jerk Penalty Formulation:** Augment the reward function with a temporal action-difference penalty that restricts rapid high-frequency changes in control signals: $R_{\text{total}} = R_{\text{base}} - \alpha \Vert{}a_t\Vert{}_2^2 - \lambda \Vert{}a_t - a_{t-1}\Vert{}_2^2$ where $\lambda = 0.05$ explicitly penalizes mechanical jerk and forces low-pass filtered, smooth actuation profiles.
+   > * **Stochastic Action-Smoothing (OU / Gaussian Noise Filtering):** Apply Ornstein-Uhlenbeck noise or exponential moving average (EMA) smoothing to action trajectories during exploration to discourage bang-bang policy convergence.
+   > * 
 
 4. **Non-Markovian Visual Failures:** Numerical aggregations mask subtle state drift, sensory truncation, and latent instability that are immediately obvious to a human researcher observing the visual render of the policy trajectory.
 
@@ -81,6 +93,11 @@ In complex RL tasks, raw numerical reward aggregation is frequently an inaccurat
    > * **The Scalar Mirage vs. Operational Failure:** Telemetry metrics show rapid, monotonic scalar reward growth ($R > 850.0$), indicating a highly performant driving policy. However, inspecting the rendered trajectory GIF reveals a vehicle spinning out of control, violently drifting through grass boundaries, and executing erratic un-drivable maneuvers.
    >
    > *This proves that aggregated numerical scores blind researchers to severe behavioral anomalies and latent state drift that are instantly exposed through direct visual trajectory rendering.*
+   >
+   > **Elite Solution & Mitigation Architecture: Semantic Collision Masking & Multi-Frame Temporal Framing**
+   > To enforce true operational compliance and eliminate off-track exploitation:
+   > * **Strict Semantic Surface Penalties:** Implement a vision/collision mask checker that queries the pixel classification of the car's contact patch. If the agent occupies off-track grass or sand pixels, apply an immediate, severe per-frame penalty ($R_{\text{penalty}} = -5.0$ for grass/sand, $0.0$ for asphalt).
+   > * **Temporal Frame-Stacking & Latent History:** Enforce a minimum history buffer of $k=4$ consecutive stacked grayscale/RGB frames fed into the CNN backbone, allowing the policy network to explicitly compute velocity vectors, rotational momentum, and trajectory curvature rather than reacting to memoryless single-frame states.
 
 ### Direct Visual Benchmarking
 To ensure true policy convergence, structural robustness, and human-verifiable behavior, all agent performance evaluations are captured as high-resolution trajectory animations (GIFs) embedded directly within the interactive Google Colab environment. Seeing the actual physical dynamics, visual control precision, and behavioral nuances of the agent provides an absolute, non-misleading standard of evaluation.
